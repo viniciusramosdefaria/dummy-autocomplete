@@ -1,5 +1,3 @@
-#!/bin/bash
-
 _dummy_root_command()
 {
     last_command="root"
