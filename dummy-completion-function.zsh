@@ -14,6 +14,13 @@ __dummy_compgen() {
 	local completions w
 	completions=( $(compgen "$@") ) || return $?
 
+	while [[ "$1" = -* && "$1" != -- ]]; do
+		shift
+		shift
+	done
+	if [[ "$1" == -- ]]; then
+		shift
+	fi
 	for w in "${completions[@]}"; do
 		if [[ "${w}" = "$1"* ]]; then
 			echo "${w}"
